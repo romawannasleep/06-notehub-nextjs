@@ -4,7 +4,7 @@ import React from 'react';
 import { useParams } from 'next/navigation';
 import { QueryClient, QueryClientProvider, hydrate, useQuery } from '@tanstack/react-query';
 import type { DehydratedState } from '@tanstack/query-core';
-import { fetchNote } from '../../../src/lib/api';
+import { fetchNote } from '../../../lib/api';
 import css from './NoteDetails.module.css';
 
 type Props = {

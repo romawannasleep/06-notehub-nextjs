@@ -1,7 +1,7 @@
 import React from 'react';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import NoteDetails from './NoteDetails.client';
-import { fetchNote } from '../../../src/lib/api';
+import { fetchNote } from '../../../lib/api';
 
 type Props = {
   params: {

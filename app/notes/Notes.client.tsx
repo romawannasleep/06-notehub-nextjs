@@ -4,7 +4,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { QueryClient, QueryClientProvider, hydrate, useQuery } from '@tanstack/react-query';
 import type { DehydratedState } from '@tanstack/query-core';
 import { useDebouncedCallback } from 'use-debounce';
-import { fetchNotes } from '../../src/lib/api';
+import { fetchNotes } from '../../lib/api';
 import Pagination from '../../components/Pagination/Pagination';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import NoteList from '../../components/NoteList/NoteList';

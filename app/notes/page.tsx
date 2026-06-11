@@ -1,7 +1,7 @@
 import React from 'react';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import NotesClient from './Notes.client';
-import { fetchNotes } from '../../src/lib/api';
+import { fetchNotes } from '../../lib/api';
 
 type Props = {
   searchParams?: { [key: string]: string | string[] | undefined };

@@ -3,9 +3,9 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createNote } from '../../src/lib/api';
+import { createNote } from '../../lib/api';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import type { NewNoteData } from '../../src/types/note';
+import type { NewNoteData } from '../../types/note';
 import css from './NoteForm.module.css';
 
 interface NoteFormProps {
