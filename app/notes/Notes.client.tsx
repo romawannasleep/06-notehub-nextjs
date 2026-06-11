@@ -5,11 +5,11 @@ import { QueryClient, QueryClientProvider, hydrate, useQuery } from '@tanstack/r
 import type { DehydratedState } from '@tanstack/query-core';
 import { useDebouncedCallback } from 'use-debounce';
 import { fetchNotes } from '../../src/lib/api';
-import Pagination from '../components/Pagination/Pagination';
-import SearchBox from '../components/SearchBox/SearchBox';
-import NoteList from '../components/NoteList/NoteList';
-import Modal from '../components/Modal/Modal';
-import NoteForm from '../components/NoteForm/NoteForm';
+import Pagination from '../../components/Pagination/Pagination';
+import SearchBox from '../../components/SearchBox/SearchBox';
+import NoteList from '../../components/NoteList/NoteList';
+import Modal from '../../components/Modal/Modal';
+import NoteForm from '../../components/NoteForm/NoteForm';
 import css from './page.module.css';
 
 type Props = {
