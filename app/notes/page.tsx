@@ -1,4 +1,4 @@
-import React from 'react';
+import { HydrationBoundary } from '@tanstack/react-query'
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import NotesClient from './Notes.client';
 import { fetchNotes } from '../../lib/api';
@@ -8,6 +8,7 @@ type Props = {
 };
 
 export default async function Page({ searchParams }: Props) {
+  
   const page = Number(Array.isArray(searchParams?.page) ? searchParams?.page[0] : searchParams?.page) || 1;
   const perPage = 12;
   const search = (Array.isArray(searchParams?.search) ? searchParams?.search[0] : searchParams?.search) || '';
@@ -18,5 +19,9 @@ export default async function Page({ searchParams }: Props) {
 
   const dehydratedState = dehydrate(queryClient);
 
-  return <NotesClient dehydratedState={dehydratedState} initialPage={page} initialSearch={search} />;
+  return (
+    <HydrationBoundary state={dehydratedState}>
+      <NotesClient dehydratedState={dehydratedState} initialPage={page} initialSearch={search} />
+    </HydrationBoundary>
+  );
 }

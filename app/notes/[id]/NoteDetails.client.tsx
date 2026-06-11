@@ -19,6 +19,7 @@ const NoteDetailsInner: React.FC = () => {
 		queryKey: ['note', id],
 		queryFn: () => fetchNote(id as string),
 		enabled: !!id,
+		refetchOnMount: false,
 	});
 
 	if (isLoading) return <p>Loading, please wait...</p>;

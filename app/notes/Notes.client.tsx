@@ -69,9 +69,11 @@ const Notes: React.FC<Props> = ({ dehydratedState, initialPage = 1, initialSearc
 
         {!isLoading && !isError && data?.notes && <NoteList notes={data.notes} />}
 
-        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-          <NoteForm onClose={handleCloseModal} />
-        </Modal>
+        {isModalOpen && (
+          <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+            <NoteForm onClose={handleCloseModal} />
+          </Modal>
+        )}
       </div>
     </QueryClientProvider>
   );

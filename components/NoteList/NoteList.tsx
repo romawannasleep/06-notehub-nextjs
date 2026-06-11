@@ -1,9 +1,9 @@
-// src/components/NoteList/NoteList.tsx
 import React from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deleteNote } from '../../lib/api';
 import type { Note } from '../../types/note';
 import css from './NoteList.module.css';
+import Link from 'next/link';
 
 interface NoteListProps {
   notes: Note[];
@@ -33,9 +33,9 @@ const NoteList: React.FC<NoteListProps> = ({ notes }) => {
           <p className={css.content}>{note.content}</p>
           <div className={css.footer}>
             <span className={css.tag}>{note.tag}</span>
-            <a href={`/notes/${note.id}`} className={css.link}>
+            <Link href={`/notes/${note.id}`} className={css.link}>
               View details
-            </a>
+            </Link>
             <button
               className={css.button}
               onClick={() => handleDelete(note.id)}
