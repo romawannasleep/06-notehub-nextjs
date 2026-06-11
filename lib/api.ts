@@ -1,6 +1,6 @@
 import axios from 'axios';
 import type { AxiosResponse } from 'axios';
-import type { Note, NewNoteData } from '../../types/note';
+import type { Note, NewNoteData } from '../types/note';
 
 const api = axios.create({
   baseURL: 'https://notehub-public.goit.study/api',
