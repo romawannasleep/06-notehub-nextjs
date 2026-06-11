@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useCallback, useEffect } from 'react';
-import { QueryClient, QueryClientProvider, hydrate, useQuery } from '@tanstack/react-query';
-import type { DehydratedState } from '@tanstack/query-core';
+import React, { useCallback, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useDebouncedCallback } from 'use-debounce';
 import { fetchNotes } from '../../lib/api';
 import Pagination from '../../components/Pagination/Pagination';
@@ -13,21 +12,15 @@ import NoteForm from '../../components/NoteForm/NoteForm';
 import css from './page.module.css';
 
 type Props = {
-  dehydratedState?: DehydratedState | null;
   initialPage?: number;
   initialSearch?: string;
 };
 
-const Notes: React.FC<Props> = ({ dehydratedState, initialPage = 1, initialSearch = '' }) => {
-  const [queryClient] = useState(() => new QueryClient());
+const Notes: React.FC<Props> = ({ initialPage = 1, initialSearch = '' }) => {
   const [page, setPage] = useState<number>(initialPage);
   const [search, setSearch] = useState<string>(initialSearch);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const perPage = 12;
-
-  useEffect(() => {
-    if (dehydratedState) hydrate(queryClient, dehydratedState);
-  }, [dehydratedState, queryClient]);
 
   const handleCloseModal = useCallback(() => {
     setIsModalOpen(false);
@@ -50,8 +43,7 @@ const Notes: React.FC<Props> = ({ dehydratedState, initialPage = 1, initialSearc
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className={css.app}>
+    <div className={css.app}>
         <header className={css.toolbar}>
           <SearchBox onChange={handleSearch} />
 
@@ -75,7 +67,6 @@ const Notes: React.FC<Props> = ({ dehydratedState, initialPage = 1, initialSearc
           </Modal>
         )}
       </div>
-    </QueryClientProvider>
   );
 };
 

@@ -21,7 +21,7 @@ export default async function Page({ searchParams }: Props) {
 
   return (
     <HydrationBoundary state={dehydratedState}>
-      <NotesClient dehydratedState={dehydratedState} initialPage={page} initialSearch={search} />
+      <NotesClient initialPage={page} initialSearch={search} />
     </HydrationBoundary>
   );
 }
